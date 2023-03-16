@@ -50,7 +50,7 @@ main>div {
 
 }
 
-/*-----------------------------------------------------------------------------------------PHOTO AND CODE---------------------------------*/
+/*-----------------------------------------------------------------------------------------PHOTO AND CODE GRID---------------------------------*/
 main section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -129,49 +129,71 @@ main>section>:nth-child(7) {
     body {
         background-color: darkgrey;
     }
+
     main section {
-       grid-template-columns: 1fr 4fr;
+        grid-template-columns: 1fr 6fr;
+        grid-template-rows: 200px repeat(9, 1fr);
     }
+
+    main section div {
+        margin: 5px;
+    }
+
     main>section>:nth-child(1),
     main>section>:nth-child(2) {
         grid-column-start: 2;
-        grid-row-start: 3;
+        grid-row-start: 2;
         justify-self: start;
-        align-self: start;
+        align-self: center;
     }
+
     main>section>:nth-child(2) {
+        grid-row-start: 3;
         justify-self: center;
-        align-self: end;
     }
+
     main>section>:nth-child(3) {
         grid-row-start: 4;
         justify-self: end;
-        align-self: start;
+        align-self: center;
     }
-    main>section>:nth-child(4),main>section>:nth-child(5) {
-        grid-column-start: 2;
-        grid-row-start: 5;
-        justify-self: center;
-        align-self: start;
-    }   
+
+    main>section>:nth-child(4),
     main>section>:nth-child(5) {
-        justify-self: start;
-        align-self: end;
+        grid-column-start: 2;
+        grid-row-start: 6;
+        justify-self: center;
+        align-self: center;
     }
+
+    main>section>:nth-child(5) {
+        grid-row-start: 7;
+        justify-self: start;
+    }
+
+    body>main>section:nth-child(1)>:nth-child(8) {
+        grid-row-start: 5;
+        align-self: center;
+    }
+
     main>section>:nth-child(6) {
         justify-self: end;
-        align-self: start;
+        grid-row-start: 8;
+        align-self: center;
     }
+
     body>main>section:nth-child(1)>:nth-child(9) {
-        grid-row-start: 6;
+        grid-row-start: 9;
+        align-self: center;
+
     }
-    
+
 
     main>section>:nth-child(7) {
         grid-column-start: 2;
-        grid-row-start: 7;
-        justify-self: end;
-        align-self: start;
+        grid-row-start: 10;
+        justify-self: center;
+        align-self: center;
     }
 }
 
