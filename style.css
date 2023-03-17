@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=fallback');
 :root {
     --photo_bg: url('./assets/img/bg-photo.jpg');
     --code_bg: url('./assets/img/bg-code.jpg');
@@ -19,6 +20,9 @@ body {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+
 }
 
 main {
@@ -106,9 +110,14 @@ main section {
 
 /*-----------------------------------------------------------------------------------------ALL ELEMENTS IN PHOTO AND CODE---------------------------------*/
 main section div {
-    width: 160px;
+    width: 220px;
     height: 30px;
     margin: 10px;
+    display:flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    color:white
 }
 
 /*-----------------------------------------------------------------------------------------ALL items of photo and code---------------------------------*/
@@ -169,7 +178,7 @@ main>section>:nth-child(7) {
     align-self: start;
 }
 
-@media only screen and (max-width: 1075px) {
+@media only screen and (max-width: 1350px) {
     body {
         background-color: darkgrey;
     }
