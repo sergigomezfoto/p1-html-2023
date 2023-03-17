@@ -51,6 +51,7 @@ main>div {
 /*-----------------------------------------------------------------------------------------PICTURE ---------------------------------*/
 main>div>div:first-child {
     background-image: var(--me_background);
+  
     width: 130px;
     height: 130px;
     border-radius: 50%;
@@ -83,6 +84,10 @@ main>div>div:last-child>div {
     align-self: center;
     margin-right:2px;
     margin-left:2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 main>div>div:last-child>div:not(:first-child):not(:last-child) {
@@ -249,6 +254,7 @@ main>section:nth-child(1)>:nth-child(8) {
 
 main>section:nth-child(1)>:nth-child(9) {
     background-color: var(--examples_color);
+    background-size: cover;
     grid-column-start: 2;
     grid-row-start: 7;
     justify-self: end;
@@ -260,6 +266,7 @@ main>section:nth-child(1)>:nth-child(9) {
 main section:nth-child(1) {
     grid-area: photo;
     background: var(--photo_bg);
+    background-size: cover;
     background-position: center;
     border-right: 1px solid #fff;
 
