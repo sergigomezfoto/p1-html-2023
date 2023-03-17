@@ -54,7 +54,7 @@ a{
 svg{
     width:16px;
     height:16px;
-    color:var(--text_icon_color);
+   fill:unset;
 }
 
 /*-----------------------------------------------------------------------------------------PICTURE ANS LINKS---------------------------------*/
@@ -97,6 +97,7 @@ main>div>div:last-child {
     align-items: flex-end;
 }
 
+
 main>div>div:last-child>div {
     background-color: #fff;
     width: 38px;
@@ -108,6 +109,12 @@ main>div>div:last-child>div {
     display: flex;
     justify-content: center;
     align-items: center;
+    fill:var(--text_icon_color);
+
+}
+main>div>div:last-child>div:hover {
+    fill:var(--text_link_color);
+    background-color:var(--text_icon_color);
 
 }
 
