@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=fallback');
+
 :root {
     --photo_bg: url('./assets/img/bg-photo.jpg');
     --code_bg: url('./assets/img/bg-code.jpg');
     --me_background: url('./assets/img/me.jpg');
-    --studies_color: #4569aa;
-    --projects_color: #b91a47;
-    --examples_color: #be843c;
-    --text_link_color:#fff;
-    --text_icon_color:#000;
+    --studies_color: #3c85ae;
+    --projects_color: #d30741;
+    --examples_color: #f55f25;
+    --text_link_color: #fff;
+    --text_icon_color: #000;
 }
 
 * {
@@ -40,21 +41,22 @@ main {
         "photo code";
 }
 
-a{
+a {
     text-decoration: none;
-    color:unset;
+    color: unset;
     position: relative;
-    width:100%;
-    height:100%;
-    display:flex;
+    width: 100%;
+    height: 100%;
+    display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
 }
-svg{
-    width:16px;
-    height:16px;
-   fill:unset;
+
+svg {
+    width: 16px;
+    height: 16px;
+    fill: unset;
 }
 
 /*-----------------------------------------------------------------------------------------PICTURE ANS LINKS---------------------------------*/
@@ -80,6 +82,40 @@ main>div>div:first-child {
     position: relative;
     left: 50%;
     transform: translate(-50%);
+    transition:all 0.3s;
+}
+main>div>div:first-child:hover {
+    background-position-y: -15px;
+}
+
+body>main>div>div:first-child>div {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 130px;
+    width: 130px;
+    transform: translate(-50%);
+    /* background-color: #000; */
+    color: var(--text_link_color);
+    font-size: 0.35rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.3s linear;
+}
+h1{
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 2px #000000;
+}
+main>div>div:first-child:hover  div:first-child{
+    /* border: 2px solid #000; */
+    opacity: 1;
+    /* background-color: rgba(0,0,0,0.4); */
+
 }
 
 /*-----------------------------------------------------------------------------------------LINKS ---------------------------------*/
@@ -95,28 +131,57 @@ main>div>div:last-child {
     justify-content: space-between;
     flex-wrap: nowrap;
     align-items: flex-end;
+    z-index: -1;
 }
 
 
 main>div>div:last-child>div {
-    background-color: #fff;
-    width: 38px;
-    height: 38px;
+    background-color: var(--text_link_color);
+    width: 36px;
+    height: 36px;
+    /* border:2px solid var(--text_link_color); */
     border-radius: 50%;
     align-self: center;
-    margin-right:2px;
-    margin-left:2px;
+    margin-right: 2px;
+    margin-left: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
-    fill:var(--text_icon_color);
+    position: relative;
+    fill: var(--text_icon_color);
+    overflow: hidden;
+    transition: all 0.2s;
+    -webkit-box-shadow: inset 0px 0px 0px -1px #000;
+    -moz-box-shadow: inset 0px 0px 0px -1px #000;
+    box-shadow: inset 0px 0px 0px -1px #000;
 
 }
+
+/************************************************************************************************animation*/
+main>div>div:last-child>div::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    transition: all 0.3s;
+
+}
+
+main>div>div:last-child>div:hover:before {
+    -webkit-box-shadow: inset 0px 0px 0px 20px #000;
+    -moz-box-shadow: inset 0px 0px 0px 20px #000;
+    box-shadow: inset 0px 0px 0px 20px #000;
+}
+
 main>div>div:last-child>div:hover {
-    fill:var(--text_link_color);
-    background-color:var(--text_icon_color);
-
+    fill: var(--text_link_color);
+    background-color: transparent;
 }
+
+/************************************************************************************************animation*/
 
 main>div>div:last-child>div:not(:first-child):not(:last-child) {
     align-self: flex-end;
@@ -136,13 +201,15 @@ main section div {
     width: 220px;
     height: 30px;
     margin: 10px;
-    display:flex;
+    display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    cursor:pointer;
-    color:var(--text_link_color);
+    cursor: pointer;
+    border-bottom: 2px solid var(--text_link_color);
+    color: var(--text_link_color);
 }
+
 /* main section div:hover{
     background-color: #fff;
 } */
@@ -325,10 +392,3 @@ main section:nth-child(2)>div {
 }
 
 /*-----------------------------------------------------------------------------------------CODE ELELMENTS*/
-
-
-
-
-
-
-
