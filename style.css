@@ -6,15 +6,15 @@
     --me_background: url('./assets/img/me.jpg');
     --text_link_color: #fff;
     --text_icon_color: #000;
-    
-    --studies_color-h:202;
-    --projects_color-h:343;
-    --examples_color-h:17;
-    --color-l:49%;
-    --color-s:91%; 
+
+    --studies_color-h: 202;
+    --projects_color-h: 343;
+    --examples_color-h: 17;
+    --color-l: 49%;
+    --color-s: 91%;
     --studies_color: hsl(var(--studies_color-h), var(--color-s), var(--color-l));
     --projects_color: hsl(var(--projects_color-h), var(--color-s), var(--color-l));
-    --examples_color:hsl(var(--examples_color-h), var(--color-s), var(--color-l));
+    --examples_color: hsl(var(--examples_color-h), var(--color-s), var(--color-l));
 }
 
 * {
@@ -64,9 +64,11 @@ svg {
     height: 16px;
     fill: unset;
 }
+/* body > main > div:first-of-type
+body > main > div:nth-child(4) */
 
 /*-----------------------------------------------------------------------------------------PICTURE ANS LINKS---------------------------------*/
-main>div {
+main>div:first-of-type {
     width: 180px;
     transform: translate(-50%);
     margin-top: 20px;
@@ -79,7 +81,7 @@ main>div {
 }
 
 /*-----------------------------------------------------------------------------------------PICTURE ---------------------------------*/
-main>div>div:first-child {
+main>div:first-of-type>div:first-child {
     background-image: var(--me_background);
     width: 130px;
     height: 130px;
@@ -92,7 +94,7 @@ main>div>div:first-child {
 }
 
 
-body>main>div>div:first-child>div {
+body>main>div:first-of-type>div:first-child>div {
     position: absolute;
     top: 0;
     left: 50%;
@@ -111,23 +113,31 @@ body>main>div>div:first-child>div {
     transition: all 0.3s linear;
 }
 
-h1 {
+body>main>div:first-of-type>div:first-child>div>h1 {
     margin-bottom: 20px;
     text-shadow: 2px 2px 2px #000000;
 }
 
 @media (hover: hover) and (pointer: fine) {
-    main>div>div:first-child:hover {
+    main>div:first-of-type>div:first-child:hover {
         background-position-y: -15px;
     }
 
-    main>div>div:first-child:hover div:first-child {
+    main>div:first-of-type>div:first-child:hover div:first-child {
+        opacity: 1;
+    }
+}
+@media (hover: none){
+    main>div:first-of-type>div:first-child {
+        background-position-y: -15px;
+    }
+    body>main>div:first-of-type>div:first-child>div{
         opacity: 1;
     }
 }
 
 /*-----------------------------------------------------------------------------------------LINKS ---------------------------------*/
-main>div>div:last-child {
+main>div:first-of-type>div:last-child {
     /* background-color: #b91a4780; */
     width: 180px;
     height: 92px;
@@ -143,7 +153,7 @@ main>div>div:last-child {
 }
 
 
-main>div>div:last-child>div {
+main>div:first-of-type>div:last-child>div {
     background-color: var(--text_link_color);
     width: 36px;
     height: 36px;
@@ -162,7 +172,7 @@ main>div>div:last-child>div {
 
 /************************************************************************************************animation només en no tactils*/
 @media (hover: hover) and (pointer: fine) {
-    main>div>div:last-child>div:hover {
+    main>div:first-of-type>div:last-child>div:hover {
         fill: var(--text_link_color);
         background-color: #000;
         -webkit-box-shadow: inset 0px 0px 0px 10px #000;
@@ -174,7 +184,7 @@ main>div>div:last-child>div {
 
 /************************************************************************************************animation*/
 
-main>div>div:last-child>div:not(:first-child):not(:last-child) {
+main>div:first-of-type>div:last-child>div:not(:first-child):not(:last-child) {
     align-self: flex-end;
 }
 
@@ -204,42 +214,44 @@ main>section>div {
 
 }
 
-body>main>section>div:after {
-    content: attr(content);
-    position: absolute;
-    top: 32px;
-    left: 0;
-    color: transparent;
-    font-weight: 200;
-    font-size: 0.9rem;
-    width: 100%;
-    height: 0px;
-    z-index: -1;
-    transition: height 0.2s, color 0.2s;
-    cursor: default;
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
+@media (hover: hover) and (pointer: fine) {
 
-main>section>div:hover:after {
-    height: 30px;
-    color: #fff;
+    body>main>section>div:after {
+        content: attr(content);
+        position: absolute;
+        top: 32px;
+        left: 0;
+        color: transparent;
+        font-weight: 200;
+        font-size: 0.9rem;
+        width: 100%;
+        height: 0px;
+        z-index: -1;
+        cursor: default;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        transition: height 0.1s, color 0.1s;
+    }
 
-}
+    main>section>div:hover:after {
+        height: 30px;
+        color: #fff;
 
-body>main>section>div:nth-child(-n+2):after {
-    background-color: hsl(var(--studies_color-h), var(--color-s), calc(var(--color-l) * 1.3))
-}
+    }
 
-body>main>section>div:is(:nth-child(3),:nth-child(8)):after{
-    background-color: hsl(var(--projects_color-h), var(--color-s), calc(var(--color-l) * 1.3))
+    body>main>section>div:nth-child(-n+2):after {
+        background-color: hsl(var(--studies_color-h), var(--color-s), calc(var(--color-l) * 1.3))
+    }
 
-}
-body>main>section>div:nth-child(n+4):nth-child(-n+9):not(:nth-child(8)):after{
-    background-color:hsl(var(--examples_color-h), var(--color-s), calc(var(--color-l) * 1.3))
+    body>main>section>div:is(:nth-child(3), :nth-child(8)):after {
+        background-color: hsl(var(--projects_color-h), var(--color-s), calc(var(--color-l) * 1.3))
+    }
 
+    body>main>section>div:nth-child(n+4):nth-child(-n+9):not(:nth-child(8)):after {
+        background-color: hsl(var(--examples_color-h), var(--color-s), calc(var(--color-l) * 1.3))
+    }
 }
 
 /*-----------------------------------------------------------------------------------------ALL items of photo and code---------------------------------*/
