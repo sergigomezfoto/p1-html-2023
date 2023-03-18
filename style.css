@@ -81,18 +81,16 @@ main>div:nth-last-child(-n+2) {
     align-items: center;
 }
 
-main>div:nth-child(5) {
-    right: 0;  
-    left:unset;
+main div:nth-child(5) {
+    right: 0;
+    left: unset;
 }
 
-main>div:nth-last-child(-n+2)>span{
+main div:nth-last-child(-n+2) span {
     transform: rotate(270deg);
-    color:rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.5);
     font-size: 3vw;
 }
-
-
 
 
 /*-----------------------------------------------------------------------------------------PICTURE ANS LINKS---------------------------------*/
@@ -109,49 +107,46 @@ main>div:first-of-type {
 }
 
 /*-----------------------------------------------------------------------------------------PICTURE ---------------------------------*/
-main>div:first-of-type>div:first-child {
-    background-image: var(--me_background);
+body main>div:first-of-type>div:first-child,
+body main div:first-of-type>:first-child div {
     width: 130px;
     height: 130px;
+    left: 50%;
+    font-size: 0.35rem;
+    transform: translate(-50%);
+    transition: background-position-y 0.3s,opacity 0.3s;
+}
+
+body main>div:first-of-type>div:first-child {
+    background-image: var(--me_background);
     border-radius: 50%;
     border: 2px solid #fff;
     position: relative;
-    left: 50%;
-    transform: translate(-50%);
-    transition: all 0.3s;
 }
 
-
-body>main>div:first-of-type>div:first-child>div {
+body main div:first-of-type>:first-child div {
     position: absolute;
-    top: 0;
-    left: 50%;
-    height: 130px;
-    width: 130px;
-    transform: translate(-50%);
     color: var(--text_link_color);
-    font-size: 0.35rem;
+    top: 0;
     display: flex;
     flex-direction: column;
     justify-content: end;
     align-items: center;
-    border-radius: 50%;
     pointer-events: none;
     opacity: 0;
-    transition: all 0.3s linear;
 }
 
-body>main>div:first-of-type>div:first-child>div>h1 {
+body main div:first-of-type>:first-child div h1 {
     margin-bottom: 20px;
     text-shadow: 2px 2px 2px #000000;
 }
 
 @media (hover: hover) and (pointer: fine) {
-    main>div:first-of-type>div:first-child:hover {
+    body main div:first-of-type>div:first-child:hover {
         background-position-y: -15px;
     }
 
-    main>div:first-of-type>div:first-child:hover div:first-child {
+    body main>div:first-of-type>div:first-child:hover div:first-child {
         opacity: 1;
     }
 }
@@ -161,13 +156,13 @@ body>main>div:first-of-type>div:first-child>div>h1 {
         background-position-y: -15px;
     }
 
-    body>main>div:first-of-type>div:first-child>div {
+    body main>div:first-of-type>div:first-child div {
         opacity: 1;
     }
 }
 
 /*-----------------------------------------------------------------------------------------LINKS ---------------------------------*/
-main>div:first-of-type>div:last-child {
+main div:first-of-type>div:last-child {
     /* background-color: #b91a4780; */
     width: 180px;
     height: 92px;
@@ -183,7 +178,7 @@ main>div:first-of-type>div:last-child {
 }
 
 
-main>div:first-of-type>div:last-child>div {
+main div:first-of-type>:last-child div {
     background-color: var(--text_link_color);
     width: 36px;
     height: 36px;
@@ -200,9 +195,13 @@ main>div:first-of-type>div:last-child>div {
     transition: all 0.2s;
 }
 
+main div:first-of-type>:last-child :not(:first-child):not(:last-child) {
+    align-self: flex-end;
+}
+
 /************************************************************************************************animation només en no tactils*/
 @media (hover: hover) and (pointer: fine) {
-    main>div:first-of-type>div:last-child>div:hover {
+    main div:first-of-type>:last-child div:hover {
         fill: var(--text_link_color);
         background-color: #000;
         -webkit-box-shadow: inset 0px 0px 0px 10px #000;
@@ -212,11 +211,9 @@ main>div:first-of-type>div:last-child>div {
     }
 }
 
-/************************************************************************************************animation*/
 
-main>div:first-of-type>div:last-child>div:not(:first-child):not(:last-child) {
-    align-self: flex-end;
-}
+
+
 
 /*-----------------------------------------------------------------------------------------PHOTO AND CODE GRID---------------------------------*/
 main section {
@@ -228,7 +225,7 @@ main section {
 }
 
 /*-----------------------------------------------------------------------------------------ALL ELEMENTS IN PHOTO AND CODE---------------------------------*/
-main>section>div {
+main section div {
     width: 220px;
     height: 30px;
     margin: 10px;
@@ -242,18 +239,19 @@ main>section>div {
     z-index: 1;
 
 }
-hr{
+
+hr {
     position: absolute;
     left: 50%;
     bottom: -2px;
     text-align: center;
     align-self: center;
-    width: 220px;
-    transform: translate(-50%,-50%);
-    /* transform-origin: center; */
+    width: 100%;
+    transform: translate(-50%, -50%);
     height: 2px;
     background-color: white;
     border: none;
+    transition: width 0.2s;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -263,6 +261,7 @@ hr{
         position: absolute;
         top: 30px;
         left: 0;
+        border-radius: 0 0 10px 10px;
         color: transparent;
         font-weight: 200;
         font-size: 0.9rem;
@@ -283,6 +282,10 @@ hr{
 
     }
 
+    main>section>div:hover hr {
+        width: 80%;
+    }
+
     body>main>section>div:nth-child(-n+2):after {
         background-color: hsl(var(--studies_color-h), var(--color-s), calc(var(--color-l) * 1.3))
     }
@@ -298,8 +301,7 @@ hr{
 
 /*-----------------------------------------------------------------------------------------ALL items of photo and code---------------------------------*/
 /*la variable bg-color m'ajuda amb la legibilitat*/
-main>section>:nth-child(1) {
-
+main section>:nth-child(1) {
     background-color: var(--studies_color);
     grid-column-start: 1;
     grid-row-start: 2;
@@ -308,7 +310,7 @@ main>section>:nth-child(1) {
 
 }
 
-main>section>:nth-child(2) {
+main section>:nth-child(2) {
     background-color: var(--studies_color);
     grid-column-start: 2;
     grid-row-start: 2;
@@ -316,7 +318,7 @@ main>section>:nth-child(2) {
     align-self: end;
 }
 
-main>section>:nth-child(3) {
+main section>:nth-child(3) {
     background-color: var(--projects_color);
     grid-column-start: 2;
     grid-row-start: 3;
@@ -324,7 +326,7 @@ main>section>:nth-child(3) {
     align-self: end;
 }
 
-main>section>:nth-child(4) {
+main section>:nth-child(4) {
     background-color: var(--examples_color);
     grid-column-start: 1;
     grid-row-start: 5;
@@ -332,7 +334,7 @@ main>section>:nth-child(4) {
     align-self: start;
 }
 
-main>section>:nth-child(5) {
+main section>:nth-child(5) {
     background-color: var(--examples_color);
     grid-column-start: 2;
     grid-row-start: 5;
@@ -340,7 +342,7 @@ main>section>:nth-child(5) {
     align-self: end;
 }
 
-main>section>:nth-child(6) {
+main section>:nth-child(6) {
     background-color: var(--examples_color);
     grid-column-start: 2;
     grid-row-start: 6;
@@ -348,13 +350,14 @@ main>section>:nth-child(6) {
     align-self: end;
 }
 
-main>section>:nth-child(7) {
+main section>:nth-child(7) {
     background-color: var(--examples_color);
     grid-column-start: 1;
     grid-row-start: 8;
     justify-self: end;
     align-self: start;
 }
+
 /*------------------------------------------------------------------------------------------------------------- media query*/
 @media only screen and (max-width: 1350px) {
 
@@ -363,7 +366,7 @@ main>section>:nth-child(7) {
         grid-template-rows: 200px repeat(9, 1fr) 15px 20px;
     }
 
-    main section div {
+    main>section>div {
         margin: 5px;
     }
 
@@ -423,40 +426,55 @@ main>section>:nth-child(7) {
         justify-self: center;
         align-self: center;
     }
+
+    @media only screen and (max-width: 530px) {
+        main>div:nth-last-child(-n+2) {
+            display: none;
+        }
+
+        body>main>section>div {
+            width: 180px;
+            font-size: 0.75rem;
+        }
+
+        body>main>section>div:after {
+            font-size: 0.70rem;
+        }
+
+    }
+
+
+
 }
 
 /*-----------------------------------------------------------------------------------------ALL ELEMENTS MIXED----------------------------*/
-
-main>section:nth-child(1)>:nth-child(8) {
-    background-color: var(--projects_color);
-    grid-column-start: 2;
-    grid-row-start: 4;
+main section:nth-child(1)>:nth-last-child(-n+2) {
     justify-self: end;
     transform: translate(calc(50% + 10px));
     align-self: end;
 }
 
-main>section:nth-child(1)>:nth-child(9) {
+main section:nth-child(1)>:nth-child(8) {
+    background-color: var(--projects_color);
+    grid-column-start: 2;
+    grid-row-start: 4;
+}
+
+main section:nth-child(1)>:nth-child(9) {
     background-color: var(--examples_color);
     background-size: cover;
     grid-column-start: 2;
     grid-row-start: 7;
-    justify-self: end;
-    transform: translate(calc(50% + 10px));
-    align-self: end;
 }
 
 /*-----------------------------------------------------------------------------------------PHOTO----------------------------*/
-main section:nth-child(1) {
+main section {
     grid-area: photo;
     background: var(--photo_bg);
     background-size: cover;
     background-position: center;
     border-right: 1px solid #fff;
-
 }
-
-/*------------------------------------------------------------------------------PHOTO ELELMENTS*/
 
 
 /*-----------------------------------------------------------------------------------------CODE---------------------------------*/
@@ -468,8 +486,18 @@ main section:nth-child(2) {
     border-left: 1px solid #fff;
 }
 
-main section:nth-child(2)>div {
+main section:nth-child(1) div {
+    border-radius: 10px 0 0 0;
+
+}
+
+main section:nth-child(2) div {
+    border-radius: 0 10px 0 0;
     direction: ltr;
+}
+
+main section:nth-child(1) :nth-last-child(-n+2) {
+    border-radius: 10px 10px 0 0;
 }
 
 /*-----------------------------------------------------------------------------------------CODE ELELMENTS*/
