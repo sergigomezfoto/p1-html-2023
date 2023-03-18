@@ -64,8 +64,36 @@ svg {
     height: 16px;
     fill: unset;
 }
+
 /* body > main > div:first-of-type
 body > main > div:nth-child(4) */
+/*-----------------------------------------------------------------------------------------BANDAS CODE & IMAGE---------------------------------*/
+main>div:nth-last-child(-n+2) {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: var(--text_link_color);
+    width: 6vw;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main>div:nth-child(5) {
+    right: 0;  
+    left:unset;
+}
+
+main>div:nth-last-child(-n+2)>span{
+    transform: rotate(270deg);
+    color:rgba(255,255,255,0.5);
+    font-size: 3vw;
+}
+
+
+
 
 /*-----------------------------------------------------------------------------------------PICTURE ANS LINKS---------------------------------*/
 main>div:first-of-type {
@@ -127,11 +155,13 @@ body>main>div:first-of-type>div:first-child>div>h1 {
         opacity: 1;
     }
 }
-@media (hover: none){
+
+@media (hover: none) {
     main>div:first-of-type>div:first-child {
         background-position-y: -15px;
     }
-    body>main>div:first-of-type>div:first-child>div{
+
+    body>main>div:first-of-type>div:first-child>div {
         opacity: 1;
     }
 }
