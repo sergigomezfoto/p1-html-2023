@@ -17,7 +17,14 @@
     --examples_color: hsl(var(--examples_color-h), var(--color-s), var(--color-l));
 }
 
-* {
+body,
+section,
+main,
+div,
+span,
+h1,
+hr,
+a {
     margin: 0;
     padding: 0;
 }
@@ -65,66 +72,39 @@ svg {
     fill: unset;
 }
 
-/* body > main > div:first-of-type
-body > main > div:nth-child(4) */
-/*-----------------------------------------------------------------------------------------BANDAS CODE & IMAGE---------------------------------*/
-main>div:nth-last-child(-n+2) {
-    background-color: rgba(0, 0, 0, 0.4);
-    color: var(--text_link_color);
-    width: 6vw;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-main div:nth-child(5) {
-    right: 0;
-    left: unset;
-}
-
-main div:nth-last-child(-n+2) span {
-    transform: rotate(270deg);
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 3vw;
-}
-
 
 /*-----------------------------------------------------------------------------------------PICTURE ANS LINKS---------------------------------*/
-main>div:first-of-type {
+header>div {
     width: 180px;
     transform: translate(-50%);
     margin-top: 20px;
     height: 180px;
-    /* background-color: #892be252; */
     position: fixed;
     left: 50%;
+    top: 0;
 
 
 }
 
 /*-----------------------------------------------------------------------------------------PICTURE ---------------------------------*/
-body main>div:first-of-type>div:first-child,
-body main div:first-of-type>:first-child div {
+body header>div:first-of-type>div:first-child,
+body header div:first-of-type>:first-child div {
     width: 130px;
     height: 130px;
     left: 50%;
     font-size: 0.35rem;
     transform: translate(-50%);
-    transition: background-position-y 0.3s,opacity 0.3s;
+    transition: background-position-y 0.3s, opacity 0.3s;
 }
 
-body main>div:first-of-type>div:first-child {
+body header>div:first-of-type>div:first-child {
     background-image: var(--me_background);
     border-radius: 50%;
     border: 2px solid #fff;
     position: relative;
 }
 
-body main div:first-of-type>:first-child div {
+body header div:first-of-type>:first-child div {
     position: absolute;
     color: var(--text_link_color);
     top: 0;
@@ -136,33 +116,13 @@ body main div:first-of-type>:first-child div {
     opacity: 0;
 }
 
-body main div:first-of-type>:first-child div h1 {
+body header div:first-of-type>:first-child div h1 {
     margin-bottom: 20px;
     text-shadow: 2px 2px 2px #000000;
 }
 
-@media (hover: hover) and (pointer: fine) {
-    body main div:first-of-type>div:first-child:hover {
-        background-position-y: -15px;
-    }
-
-    body main>div:first-of-type>div:first-child:hover div:first-child {
-        opacity: 1;
-    }
-}
-
-@media (hover: none) {
-    main>div:first-of-type>div:first-child {
-        background-position-y: -15px;
-    }
-
-    body main>div:first-of-type>div:first-child div {
-        opacity: 1;
-    }
-}
-
 /*-----------------------------------------------------------------------------------------LINKS ---------------------------------*/
-main div:first-of-type>div:last-child {
+header div:first-of-type>div:last-child {
     /* background-color: #b91a4780; */
     width: 180px;
     height: 92px;
@@ -178,7 +138,7 @@ main div:first-of-type>div:last-child {
 }
 
 
-main div:first-of-type>:last-child div {
+header div:first-of-type>:last-child div {
     background-color: var(--text_link_color);
     width: 36px;
     height: 36px;
@@ -195,24 +155,36 @@ main div:first-of-type>:last-child div {
     transition: all 0.2s;
 }
 
-main div:first-of-type>:last-child :not(:first-child):not(:last-child) {
+header div:first-of-type>:last-child :not(:first-child):not(:last-child) {
     align-self: flex-end;
 }
 
 /************************************************************************************************animation només en no tactils*/
 @media (hover: hover) and (pointer: fine) {
-    main div:first-of-type>:last-child div:hover {
+    header div:first-of-type>:last-child div:hover {
         fill: var(--text_link_color);
         background-color: #000;
         -webkit-box-shadow: inset 0px 0px 0px 10px #000;
         -moz-box-shadow: inset 0px 0px 0px 10px #000;
         box-shadow: inset 0px 0px 0px 10px #000;
-
+    }
+    body header div:first-of-type>div:first-child:hover {
+        background-position-y: -15px;
+    }
+    body header>div:first-of-type>div:first-child:hover div:first-child {
+        opacity: 1;
     }
 }
 
+@media (hover: none) {
+    header>div:first-of-type>div:first-child {
+        background-position-y: -15px;
+    }
 
-
+    body header>div:first-of-type>div:first-child div {
+        opacity: 1;
+    }
+}
 
 
 /*-----------------------------------------------------------------------------------------PHOTO AND CODE GRID---------------------------------*/
@@ -358,94 +330,6 @@ main section>:nth-child(7) {
     align-self: start;
 }
 
-/*------------------------------------------------------------------------------------------------------------- media query*/
-@media only screen and (max-width: 1350px) {
-
-    main section {
-        grid-template-columns: 1fr 6fr;
-        grid-template-rows: 200px repeat(9, 1fr) 15px 20px;
-    }
-
-    main>section>div {
-        margin: 5px;
-    }
-
-    main>section>:nth-child(1),
-    main>section>:nth-child(2) {
-        grid-column-start: 2;
-        grid-row-start: 2;
-        justify-self: start;
-        align-self: center;
-    }
-
-    main>section>:nth-child(2) {
-        grid-row-start: 3;
-        justify-self: center;
-    }
-
-    main>section>:nth-child(3) {
-        grid-row-start: 4;
-        justify-self: end;
-        align-self: center;
-    }
-
-    main>section>:nth-child(4),
-    main>section>:nth-child(5) {
-        grid-column-start: 2;
-        grid-row-start: 6;
-        justify-self: center;
-        align-self: center;
-    }
-
-    main>section>:nth-child(5) {
-        grid-row-start: 7;
-        justify-self: start;
-    }
-
-    body>main>section:nth-child(1)>:nth-child(8) {
-        grid-row-start: 5;
-        align-self: center;
-    }
-
-    main>section>:nth-child(6) {
-        justify-self: end;
-        grid-row-start: 8;
-        align-self: center;
-    }
-
-    body>main>section:nth-child(1)>:nth-child(9) {
-        grid-row-start: 9;
-        align-self: center;
-
-    }
-
-
-    main>section>:nth-child(7) {
-        grid-column-start: 2;
-        grid-row-start: 10;
-        justify-self: center;
-        align-self: center;
-    }
-
-    @media only screen and (max-width: 530px) {
-        main>div:nth-last-child(-n+2) {
-            display: none;
-        }
-
-        body>main>section>div {
-            width: 180px;
-            font-size: 0.75rem;
-        }
-
-        body>main>section>div:after {
-            font-size: 0.70rem;
-        }
-
-    }
-
-
-
-}
 
 /*-----------------------------------------------------------------------------------------ALL ELEMENTS MIXED----------------------------*/
 main section:nth-child(1)>:nth-last-child(-n+2) {
@@ -500,4 +384,139 @@ main section:nth-child(1) :nth-last-child(-n+2) {
     border-radius: 10px 10px 0 0;
 }
 
+/*-----------------------------------------------------------------------------------------BANDAS CODE & IMAGE---------------------------------*/
+aside div {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: var(--text_link_color);
+    width: 6vw;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+aside div:last-child {
+    right: 0;
+    left: unset;
+}
+
+aside div span {
+    transform: rotate(270deg);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 3vw;
+}
+
 /*-----------------------------------------------------------------------------------------CODE ELELMENTS*/
+footer {
+    width: 260px;
+    height: 20px;
+    background-color: var(--text_link_color);
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+footer span:nth-child(odd) {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: aquamarine;
+
+}
+
+footer span:nth-child(even) {}
+
+
+/*------------------------------------------------------------------------------------------------------------- media query*/
+@media only screen and (max-width: 1350px) {
+
+    main section {
+        grid-template-columns: 1fr 6fr;
+        grid-template-rows: 200px repeat(9, 1fr) 15px 20px;
+    }
+
+    main>section>div {
+        margin: 5px;
+    }
+
+    main>section>:nth-child(1),
+    main>section>:nth-child(2) {
+        grid-column-start: 2;
+        grid-row-start: 2;
+        justify-self: start;
+        align-self: center;
+    }
+
+    main>section>:nth-child(2) {
+        grid-row-start: 3;
+        justify-self: center;
+    }
+
+    main>section>:nth-child(3) {
+        grid-row-start: 4;
+        justify-self: end;
+        align-self: center;
+    }
+
+    main>section>:nth-child(4),
+    main>section>:nth-child(5) {
+        grid-column-start: 2;
+        grid-row-start: 6;
+        justify-self: center;
+        align-self: center;
+    }
+
+    main>section>:nth-child(5) {
+        grid-row-start: 7;
+        justify-self: start;
+    }
+
+    main>section:nth-child(1)>:nth-child(8) {
+        grid-row-start: 5;
+        align-self: center;
+    }
+
+    main>section>:nth-child(6) {
+        justify-self: end;
+        grid-row-start: 8;
+        align-self: center;
+    }
+
+    main>section:nth-child(1)>:nth-child(9) {
+        grid-row-start: 9;
+        align-self: center;
+
+    }
+
+
+    main>section>:nth-child(7) {
+        grid-column-start: 2;
+        grid-row-start: 10;
+        justify-self: center;
+        align-self: center;
+    }
+
+    @media only screen and (max-width: 530px) {
+      aside div {
+            display: none;
+        }
+
+        main>section>div {
+            width: 180px;
+            font-size: 0.75rem;
+        }
+
+        main>section>div:after {
+            font-size: 0.70rem;
+        }
+    }
+
+}
