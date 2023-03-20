@@ -414,8 +414,6 @@ main section:nth-child(2) div {
 aside div {
     background-color:transparent;
     color: var(--text_link_color);
-
-
     height: 100%;
     position: absolute;
     top: 0;
@@ -437,38 +435,16 @@ aside div span {
     font-size: 1rem;
 }
 
-/*-----------------------------------------------------------------------------------------CODE ELELMENTS*/
-/* footer {
-    width: 260px;
-    height: 20px;
-    background-color: var(--text_link_color);
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.7rem;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
 
-footer span:nth-child(odd) {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: aquamarine;
-
-}
-
-footer span:nth-child(even) {} */
 
 
 /*------------------------------------------------------------------------------------------------------------- media query*/
-/* @media only screen and (max-width: 1350px) {
+@media only screen and (max-width: 800px),
+screen and (max-height: 700px) {
 
     main section {
         grid-template-columns: 1fr 6fr;
-        grid-template-rows: 200px repeat(9, 1fr) 15px 20px;
+        grid-template-rows: 220px repeat(9, 1fr)  20px;
     }
 
     main>section>div {
@@ -532,13 +508,24 @@ footer span:nth-child(even) {} */
         align-self: center;
     }
 
+    aside div{
+        background-color:transparent;
+        color: var(--text_link_color);
+        height:200px;
+        width:50%;
+
+    }
+    aside div span {
+        transform: rotate(0deg);
+        color: rgba(255, 255, 255, 0.5);
+        font-family: 'Oswald';
+        font-size: 1.3rem;
+    }
+
     @media only screen and (max-width: 530px) {
-        aside div {
-            display: none;
-        }
 
         main>section>div {
-            width: 180px;
+            min-width: 150px;
             font-size: 0.75rem;
         }
 
@@ -547,4 +534,4 @@ footer span:nth-child(even) {} */
         }
     }
 
-} */
+}
