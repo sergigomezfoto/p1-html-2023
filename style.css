@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=fallback');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Oswald&display=fallback');
 
 :root {
     --photo_bg: url('./assets/img/bg-photo.jpg');
@@ -6,10 +6,13 @@
     --me_background: url('./assets/img/me.jpg');
     --text_link_color: #fff;
     --text_icon_color: #000;
-    --pill-opacity:80%;
+    --pill-opacity: 80%;
     --studies_color: rgb(21 128 249 / var(--pill-opacity));
-    --projects_color: rgb(255 0 64 /  var(--pill-opacity));
-    --examples_color: rgb(255 126 3 /  var(--pill-opacity));
+    --projects_color: rgb(255 0 64 / var(--pill-opacity));
+    --examples_color: rgb(255 126 3 / var(--pill-opacity));
+    --studies_color_hover: rgb(21 128 249);
+    --projects_color_hover: rgb(255 0 64);
+    --examples_color_hover: rgb(255 126 3);
 }
 
 body,
@@ -46,7 +49,7 @@ a {
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
- 
+
 }
 
 svg {
@@ -190,11 +193,11 @@ main {
 main section {
     display: grid;
     /* grid-template-columns: 6vw 20px repeat(2, 1fr) 0.5fr; */
-    grid-template-columns:10px 1fr;
+    grid-template-columns: 10px 1fr;
     grid-template-rows: repeat(10, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    margin:0;
+    margin: 0;
 }
 
 
@@ -209,38 +212,48 @@ main section div {
     align-items: center;
     cursor: pointer;
     color: var(--text_link_color);
-    font-size:clamp(0.7rem, 1vw, 1rem);
+    font-size: clamp(0.7rem, 1vw, 1rem);
     position: relative;
     z-index: 1;
     border-radius: 10px;
-
+}
+main>section>div>a{
+    border-radius: 10px;
 
 }
-
 hr {
-display:none;
-    position: absolute;
-    left: 50%;
-    bottom: -2px;
-    text-align: center;
-    align-self: center;
-    width: 100%;
-    transform: translate(-50%, -50%);
-    height: 2px;
-    background-color: white;
-    border: none;
-    transition: width 0.2s;
+    display: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
+    main section div {
+        transition: background-color 0.2s;
+    }
+
+    hr {
+        display: block;
+        position: absolute;
+        left: 50%;
+        opacity: 0;
+        pointer-events: none;
+        bottom: calc(50% - 4px);
+        text-align: center;
+        align-self: center;
+        width: 60%;
+        transform: translate(-50%, -50%);
+        height: 2px;
+        background-color: white;
+        border: none;
+        transition: width 0.2s, opacity 0.2s;
+    }
 
     body>main>section>div:after {
         content: attr(content);
         position: absolute;
-        bottom: 25%;
+        bottom: 10%;
         left: 0;
         border-radius: 0 0 10px 10px;
-        /* color: transparent; */
+        color: transparent;
         font-weight: 200;
         font-size: clamp(0.6rem, 0.9vw, 0.9rem);
         width: 100%;
@@ -251,111 +264,125 @@ display:none;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        transition: height 0.1s, color 0.1s;
+        transition: bottom 0.1s, color 0.1s;
     }
-   main>section>div>a:hover{
-    
-   }
+
+    main>section>div>a {
+        transition: all 0.2s;
+    }
+
+    main>section>div>a:hover {
+        height: 70%;
+        padding-bottom: 10%;
+    }
+
+    main section>:nth-child(n+1):nth-child(-n+2):hover {
+        background-color: var(--studies_color_hover);
+    }
+
+    main section>:nth-child(3):hover,
+    main section>:nth-child(8):hover {
+        background-color: var(--projects_color_hover);
+    }
+
+    main section>:nth-child(n+4):nth-child(-n+7):hover,
+    main section>:nth-child(9):hover {
+        background-color: var(--examples_color_hover);
+    }
 
     main>section>div:hover:after {
-        height: 30px;
+        bottom: 30%;
         color: #fff;
 
     }
 
     main>section>div:hover hr {
-        width: 80%;
+        opacity: 1;
+        width: 40%;
     }
 
-    body>main>section>div:nth-child(-n+2):after {
-        background-color: hsl(var(--studies_color-h), var(--color-s), calc(var(--color-l) * 1.3))
-    }
-
-    body>main>section>div:is(:nth-child(3), :nth-child(8)):after {
-        background-color: hsl(var(--projects_color-h), var(--color-s), calc(var(--color-l) * 1.3))
-    }
-
-    body>main>section>div:nth-child(n+4):nth-child(-n+9):not(:nth-child(8)):after {
-        background-color: hsl(var(--examples_color-h), var(--color-s), calc(var(--color-l) * 1.3))
-    }
 }
 
 /*-----------------------------------------------------------------------------------------ALL items of photo and code---------------------------------*/
 /*la variable bg-color m'ajuda amb la legibilitat*/
 /* div:first-of-type>:last-child :not(:first-child):not(:last-child) {} */
 
-main section>:nth-child(1) {
+
+main section>:nth-child(n+1):nth-child(-n+2) {
     background-color: var(--studies_color);
-    grid-area: 2 / 2 / 3 / 3; 
+}
+
+main section>:nth-child(3),
+main section>:nth-child(8) {
+    background-color: var(--projects_color);
+}
+
+main section>:nth-child(n+4):nth-child(-n+7),
+main section>:nth-child(9) {
+    background-color: var(--examples_color);
+}
+
+main section>:nth-child(1) {
+    grid-area: 2 / 2 / 3 / 3;
     justify-self: start;
-    /* grid-column-start: 2;
-    grid-row-start: 2;
-    justify-self: start;
-    align-self: center; */
 }
 
 main section>:nth-child(2) {
-    background-color: var(--studies_color);
-    grid-area: 3 / 2 / 4 / 3; 
+    grid-area: 3 / 2 / 4 / 3;
     justify-self: center;
 }
 
 main section>:nth-child(3) {
-    background-color: var(--projects_color);
-    grid-area: 4 / 2 / 5 / 3; 
+    grid-area: 4 / 2 / 5 / 3;
     justify-self: end;
     transform: translateX(-2.5%);
 }
-main section:nth-child(2)>:nth-child(3){
-    transform: translateX(2.5%);
 
+main section:nth-child(2)>:nth-child(3) {
+    transform: translateX(2.5%);
 }
 
 main section>:nth-child(4) {
-    background-color: var(--examples_color);
-    grid-area: 6 / 2 / 7 / 3; 
+    grid-area: 6 / 2 / 7 / 3;
     justify-self: center;
 }
 
 main section>:nth-child(5) {
-    background-color: var(--examples_color);
-    grid-area: 7 / 2 / 8 / 3; 
+    grid-area: 7 / 2 / 8 / 3;
     justify-self: end;
     transform: translateX(-2.5%);
 }
-main section:nth-child(2)>:nth-child(5){
+
+main section:nth-child(2)>:nth-child(5) {
     transform: translateX(2.5%);
 
 }
+
 main section>:nth-child(6) {
-    background-color: var(--examples_color);
-    grid-area: 8 / 2 / 9 / 3; 
+    grid-area: 8 / 2 / 9 / 3;
     justify-self: start;
 }
 
 main section>:nth-child(7) {
-    background-color: var(--examples_color);
-    grid-area: 10 / 2 / 11 / 3 ; 
+    grid-area: 10 / 2 / 11 / 3;
     justify-self: center;
     align-self: start;
 }
 
 
-/*-----------------------------------------------------------------------------------------ALL ELEMENTS MIXED----------------------------*/
+/*--ALL ELEMENTS MIXED----------------------------*/
 
 main section:nth-child(1)>:nth-child(8) {
-    background-color: var(--projects_color);
-    grid-area: 5 / 2 / 6 / 3 ; 
+    grid-area: 5 / 2 / 6 / 3;
     justify-self: end;
-    transform:translateX(50%);
+    transform: translateX(50%);
 
 }
 
 main section:nth-child(1)>:nth-child(9) {
-    background-color: var(--examples_color);
-    grid-area: 9 / 2 / 10 / 3 ; 
+    grid-area: 9 / 2 / 10 / 3;
     justify-self: end;
-    transform:translateX(50%);
+    transform: translateX(50%);
 
 }
 
@@ -384,10 +411,11 @@ main section:nth-child(2) div {
 
 
 /*-----------------------------------------------------------------------------------------BANDAS CODE & IMAGE---------------------------------*/
-/* aside div {
-    background-color: rgba(0, 0, 0, 0.4);
+aside div {
+    background-color:transparent;
     color: var(--text_link_color);
-    width: 6vw;
+
+
     height: 100%;
     position: absolute;
     top: 0;
@@ -405,8 +433,9 @@ aside div:last-child {
 aside div span {
     transform: rotate(270deg);
     color: rgba(255, 255, 255, 0.5);
-    font-size: 3vw;
-} */
+    font-family: 'Oswald';
+    font-size: 1rem;
+}
 
 /*-----------------------------------------------------------------------------------------CODE ELELMENTS*/
 /* footer {
