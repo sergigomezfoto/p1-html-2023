@@ -1,3 +1,15 @@
+# Entrega pràctica
+
+He intentant no fer servir gens de javascript ni cap tipus de ID o CLASS per a practicar diferents tipus de selectors, el resultat és molt menys llegible a llarg plaç però he après diferents maneres de apuntar als elements, que era la intenció. També he fet servir GRID que havia tocat poquíssim ja que estava acostumat al FLEX. He creat dos sistemes grid (image|code) i un d'ells és el mirall de l'altre per reduir codi. També he fet servir Media querys i variables css.
+
+Respecte a Github, he fet dues branques diferents ja que en tenir la pàgina acabada no m’agradava una part i vaig continuar amb una altra idea que és la que finalment pujo.
+
+---
+---
+---
+
+
+
 # Página HTML estática
 
 Se trata de hacer una página web (no una _app_) con cierta complejidad, en un solo documento (más estilos) que tenga bastante estructura y un diseño lo mejor posible (según la destreza de cada uno). La web tiene que hacerte investigar formas de hacer ciertas cosas que hagas por primera vez. Si es la primera vez que usas HTML, haz algo que no sea demasiado difícil, pero si ya sabes HTML y CSS, aprovecha para ponerte a prueba con algo nuevo: grids, animaciones en CSS, etc.
